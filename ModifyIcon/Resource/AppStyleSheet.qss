@@ -19,7 +19,6 @@ QPushButton:pressed {
 }
 
 QLabel {
-    color: #dadfe7;
 }
 
 QLineEdit {
@@ -111,7 +110,8 @@ aproch--APromptWidget[promptType='0'] {
 aproch--ANavigationBar {
     max-width: 128px;
 }
-#aproch_navbar { /* set border only by object name */
+#aproch_navbar {
+    /* set border only by object name */
     border: none;
 }
 #aproch_navbar_item {
@@ -137,31 +137,34 @@ aproch--ANavigationBar {
 }
 #aproch_navbar_group {
     margin: 20px 0;
-    color: #898FB3;
+    color: #898fb3;
 }
 
 /**********************/
-/** Node Editor Start */
+/** Modify Icon */
 /**********************/
-#ane_node_shadow {
-    /*qproperty-color: red;*/
+#appIconListWidget {
+    background: #eff2f8;
+    qproperty-spacing: 18;
 }
-
-#ane_nodewidget_caption {
-    color: #f8f8f8;
-    font-weight: bold;
-    padding: 2px 6px;
-    min-height: 28px;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    background-color: #467082;
-}
-
-#ane_nodewidget {
-    color: #bbbbcf;
-    font-size: 10pt;
-    background-color: #222223;
+#appIconListWidget::item {
     border-radius: 6px;
+    padding: 1px;
+}
+#appIconListWidget::item:hover {
+    border: 1px solid #cfd3da;
+}
+
+AppIconWidget {
+    color: red;
+    background: white;
+    border-radius: 6px;
+}
+
+AppIconWidget #appiconwidget_pixmap {
+    border-radius: 6px;
+    background: #f4f7fc;
+    padding: 12px;
 }
 
 /** test button */

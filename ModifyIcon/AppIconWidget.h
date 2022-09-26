@@ -12,17 +12,11 @@ public:
     /** @brief 控件数据 */
     struct Data
     {
-        /** @brief 软件名称 */
-        QString appName;
-
         /** @brief 软件文件地址 */
         QString filePath;
 
         /** @brief 图标图片 */
         QIcon iconPixmap;
-
-        /** @brief 图标尺寸 */
-        QSize iconSize;
 
         /** @brief 图标显示模式 */
         QIcon::Mode mode;
@@ -36,8 +30,14 @@ public:
     /** @brief 重置控件内容 */
     void reset();
 
+    /** @brief 设置图标大小 */
+    void setIconSize(const QSize& size) const;
+
     /** @brief 获取图标大小 */
     QSize getIconSize() const;
+
+    /** @brief 程序图标控件是否有效 */
+    bool isValid() const;
 
 private:
     virtual void paintEvent(QPaintEvent* paintEvent) override;
