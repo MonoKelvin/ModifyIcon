@@ -47,11 +47,14 @@
     <ClCompile Include="main.cpp">
       <Filter>Main</Filter>
     </ClCompile>
-    <ClCompile Include="AppIconWidget.cpp">
+    <ClCompile Include="FileIconWidget.cpp">
       <Filter>Widgets</Filter>
     </ClCompile>
     <ClCompile Include="AppUtils.cpp">
       <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="FileIconListWidget.cpp">
+      <Filter>Widgets</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -68,7 +71,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="AppIconWidget.h">
+    <QtMoc Include="FileIconWidget.h">
+      <Filter>Widgets</Filter>
+    </QtMoc>
+    <QtMoc Include="FileIconListWidget.h">
       <Filter>Widgets</Filter>
     </QtMoc>
   </ItemGroup>

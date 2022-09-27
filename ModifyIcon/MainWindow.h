@@ -5,6 +5,7 @@
 
 class QListWidget;
 class QStackedWidget;
+class FileIconListWidget;
 
 namespace aproch
 {
@@ -31,6 +32,6 @@ private:
     /** @brief 浏览页面 */
     QWidget* m_browserPage;
 
-    /** @brief 图标控件列表 */
-    QListWidget* m_appIconListWidget;
+    /** @brief 文件控件列表 */
+    FileIconListWidget* m_fileIconListWidget;
 };

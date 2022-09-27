@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "AppIconWidget.h"
+#include "FileIconWidget.h"
 #include "AppUtils.h"
 
 #include <QLabel>
@@ -8,34 +8,34 @@
 const QString AObjName_IconPixmapLabel("appiconwidget_pixmap");
 const QString AObjName_AppNameLabel("appiconwidget_appname");
 
-AppIconWidget::Data::Data()
+FileIconWidget::Data::Data()
     : mode(QIcon::Mode::Normal)
 {
 }
 
-AppIconWidget::AppIconWidget(QWidget* parent)
+FileIconWidget::FileIconWidget(QWidget* parent)
     : QWidget(parent)
 {
     _init(ANull_String);
 }
 
-AppIconWidget::AppIconWidget(const QString& appFilePath, QWidget* parent)
+FileIconWidget::FileIconWidget(const QString& appFilePath, QWidget* parent)
     : QWidget(parent)
 {
     _init(appFilePath);
 }
 
-bool AppIconWidget::setApp(const QString& appFilePath)
+bool FileIconWidget::setFile(const QString& filePath)
 {
     Q_ASSERT(nullptr != m_iconPixmapLabel);
 
-    if (!QFileInfo(appFilePath).exists())
+    if (!QFileInfo(filePath).exists())
         return false;
 
-    QFileInfo fileInfo(appFilePath);
+    QFileInfo fileInfo(filePath);
     QString appName = fileInfo.fileName();
 
-    m_data.filePath = appFilePath;
+    m_data.filePath = filePath;
 
     const QIcon icon = AppUtils::GetApplicationIcon(m_data.filePath);
     if (!icon.isNull())
@@ -49,32 +49,35 @@ bool AppIconWidget::setApp(const QString& appFilePath)
         // TODO: ÉèÖÃÄ¬ÈÏÍ¼±ê
     }
     
-    m_appNameLabel->setText(appName);
+    m_fileNameLabel->setText(appName);
+    aproch::SetElidedText(m_fileNameLabel, m_fileNameLabel->width());
+
+    setToolTip(appName);
 }
 
-void AppIconWidget::reset()
+void FileIconWidget::reset()
 {
     m_data = Data();
 
     m_iconPixmapLabel->setText(ANull_String);
     m_iconPixmapLabel->setPixmap(QPixmap());
 
-    m_appNameLabel->setText(ANull_String);
+    m_fileNameLabel->setText(ANull_String);
 }
 
-void AppIconWidget::setIconSize(const QSize& size) const
+void FileIconWidget::setIconSize(const QSize& size) const
 {
     Q_ASSERT(nullptr != m_iconPixmapLabel);
     m_iconPixmapLabel->setFixedSize(size);
 }
 
-QSize AppIconWidget::getIconSize() const
+QSize FileIconWidget::getIconSize() const
 {
     Q_ASSERT(nullptr != m_iconPixmapLabel);
     return m_iconPixmapLabel->size();
 }
 
-bool AppIconWidget::isValid() const
+bool FileIconWidget::isValid() const
 {
     if (!QFileInfo(m_data.filePath).exists())
         return false;
@@ -82,12 +85,12 @@ bool AppIconWidget::isValid() const
     return true;
 }
 
-void AppIconWidget::paintEvent(QPaintEvent* paintEvent)
+void FileIconWidget::paintEvent(QPaintEvent* paintEvent)
 {
     APROCH_USE_STYLE_SHEET();
 }
 
-void AppIconWidget::_init(const QString& filePath)
+void FileIconWidget::_init(const QString& filePath)
 {
     QBoxLayout* layout = new QBoxLayout(QBoxLayout::TopToBottom, this);
     layout->setSpacing(0);
@@ -99,16 +102,16 @@ void AppIconWidget::_init(const QString& filePath)
     m_iconPixmapLabel->setScaledContents(true);
     layout->addWidget(m_iconPixmapLabel, 4);
 
-    m_appNameLabel = new QLabel(this);
-    m_appNameLabel->setObjectName(AObjName_AppNameLabel);
-    m_appNameLabel->setAlignment(Qt::AlignCenter);
-    layout->addWidget(m_appNameLabel, 1);
+    m_fileNameLabel = new QLabel(this);
+    m_fileNameLabel->setObjectName(AObjName_AppNameLabel);
+    m_fileNameLabel->setAlignment(Qt::AlignCenter);
+    layout->addWidget(m_fileNameLabel, 1);
 
-    layout->setContentsMargins(36, 16, 36, 16);
+    layout->setMargin(16);
     layout->setAlignment(Qt::AlignCenter);
 
     setIconSize(QSize(80, 80));
-    setApp(filePath);
+    setFile(filePath);
 
     QGraphicsDropShadowEffect* effect = new QGraphicsDropShadowEffect(this);
     effect->setBlurRadius(50);

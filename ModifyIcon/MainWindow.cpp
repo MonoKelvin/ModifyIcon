@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "MainWindow.h"
-#include "AppIconWidget.h"
+#include "FileIconWidget.h"
 
 #include <Aproch\Include\Widget\ANavigationBar.h>
 
@@ -12,9 +12,10 @@ MainWindow::MainWindow(QWidget *parent)
     m_navigationBar = ui.widgetNavigationBar;
     m_mainPageStack = ui.MainPageStack;
     m_browserPage = ui.BrowserPage;
-    m_appIconListWidget = ui.AppIconListWidget;
+    m_fileIconListWidget = ui.theFileIconListWidget;
 
-    m_appIconListWidget->setObjectName("appIconListWidget");
+    // 文件图标列表控件
+    m_fileIconListWidget->setObjectName("fileIconListWidget");
 
     // 导航栏
     m_navigationBar->setProperty(APropName_WidgetType, APropValue_Panel);
@@ -28,25 +29,6 @@ MainWindow::MainWindow(QWidget *parent)
     //style.isFitItem = false;
     style.isAnimation = true;
     m_navigationBar->setTrackBarStyle(style);
-
-    /// TEST
-    QString strFilePath = "D:/Eagle/Eagle.exe";
-    QListWidgetItem* pItem = new QListWidgetItem(m_appIconListWidget);
-    pItem->setSizeHint(QSize(150, 150));
-    m_appIconListWidget->addItem(pItem);
-    m_appIconListWidget->setItemWidget(pItem, new AppIconWidget(strFilePath, m_appIconListWidget));
-
-    strFilePath = "D:/Houdini/Readme.txt";
-    pItem = new QListWidgetItem(m_appIconListWidget);
-    pItem->setSizeHint(QSize(150, 150));
-    m_appIconListWidget->addItem(pItem);
-    m_appIconListWidget->setItemWidget(pItem, new AppIconWidget(strFilePath, m_appIconListWidget));
-
-    strFilePath = "E:/Project/Code/Aproch/Output/Debug/Aproch.exe";
-    pItem = new QListWidgetItem(m_appIconListWidget);
-    pItem->setSizeHint(QSize(150, 150));
-    m_appIconListWidget->addItem(pItem);
-    m_appIconListWidget->setItemWidget(pItem, new AppIconWidget(strFilePath, m_appIconListWidget));
 }
 
 MainWindow::~MainWindow()

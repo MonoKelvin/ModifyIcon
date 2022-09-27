@@ -4,7 +4,7 @@
     padding: 0;
     margin: 0;
     border: none;
-    /*border: 1px solid red;*/
+    border: 1px solid red;
     outline: none;
 }
 
@@ -143,25 +143,25 @@ aproch--ANavigationBar {
 /**********************/
 /** Modify Icon */
 /**********************/
-#appIconListWidget {
+FileIconListWidget {
     background: #eff2f8;
     qproperty-spacing: 18;
 }
-#appIconListWidget::item {
+FileIconListWidget::item {
     border-radius: 6px;
     padding: 1px;
 }
-#appIconListWidget::item:hover {
+FileIconListWidget::item:hover {
     border: 1px solid #cfd3da;
 }
 
-AppIconWidget {
+FileIconWidget {
     color: red;
     background: white;
     border-radius: 6px;
 }
 
-AppIconWidget #appiconwidget_pixmap {
+FileIconWidget #appiconwidget_pixmap {
     border-radius: 6px;
     background: #f4f7fc;
     padding: 12px;

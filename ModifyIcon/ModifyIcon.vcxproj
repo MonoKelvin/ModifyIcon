@@ -113,7 +113,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AppIconWidget.cpp" />
+    <ClCompile Include="FileIconListWidget.cpp" />
+    <ClCompile Include="FileIconWidget.cpp" />
     <ClCompile Include="AppUtils.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -129,7 +130,8 @@
     <ResourceCompile Include="ModifyIcon.rc" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="AppIconWidget.h" />
+    <QtMoc Include="FileIconWidget.h" />
+    <QtMoc Include="FileIconListWidget.h" />
     <ClInclude Include="AppUtils.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
