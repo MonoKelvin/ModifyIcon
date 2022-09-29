@@ -1,24 +1,12 @@
 * {
     font-family: 'Microsoft YaHei';
-    font-size: 14px;
     padding: 0;
     margin: 0;
     border: none;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     outline: none;
-}
-
-QPushButton {
-    border: none;
-}
-QPushButton:hover {
-    /*background: #373737;*/
-}
-QPushButton:pressed {
-    /*background: #22252a;*/
-}
-
-QLabel {
+    background: white;
+    color: black;
 }
 
 QLineEdit {
@@ -31,26 +19,25 @@ QAbstractScrollArea * {
     background: transparent;
 }
 QScrollBar:horizontal {
-    height: 13px;
+    height: 12px;
     background: transparent;
 }
 QScrollBar:vertical {
-    width: 13px;
+    width: 12px;
     background: transparent;
 }
 QScrollBar::handle:vertical,
 QScrollBar::handle:horizontal {
-    border: 1px solid #2d3035;
-    border-radius: 1px;
-    background: #56595e;
+    border-radius: 2px;
+    background: #555;
 }
 QScrollBar::handle:vertical:hover,
 QScrollBar::handle:horizontal:hover {
-    background: #696c71;
+    background: #666;
 }
 QScrollBar::handle:vertical:pressed,
 QScrollBar::handle:horizontal:pressed {
-    background: #86898e;
+    background: #777;
 }
 QScrollBar::add-line:vertical,
 QScrollBar::add-page:vertical,
@@ -63,29 +50,11 @@ QScrollBar::sub-page:horizontal {
     background: none;
 }
 
-QWidget[widgetType='panel'] {
-    border: 1px solid #1f2227;
-}
-
 /************************/
 /** Aproch Widget Start */
 /************************/
 /** caption */
-aproch--ACaptionBar {
-    background: #2d3035;
-}
-aproch--ACaptionBar QPushButton[buttonType='window_controller'] {
-    min-width: 46px;
-    min-height: 32px;
-    width: 46px;
-    height: 32px;
-}
-aproch--ACaptionBar QPushButton[buttonType='window_controller']:hover {
-    background: #373737;
-}
-aproch--ACaptionBar QPushButton[buttonType='window_controller']:pressed {
-    background-color: #007acc;
-}
+
 aproch--AAvatar {
     qproperty-mstateenable: false;
     qproperty-mstatecolor: #1ee76e;
@@ -108,43 +77,49 @@ aproch--APromptWidget[promptType='0'] {
 
 /** navigation bar */
 aproch--ANavigationBar {
-    max-width: 128px;
+    max-width: 300px;
+    min-width: 150px;
 }
 #aproch_navbar {
     /* set border only by object name */
     border: none;
 }
 #aproch_navbar_item {
-    height: 64px;
+    max-height: 45px;
+    min-height: 45px;
+    margin: 3px 5px;
+    border-radius: 6px;
 }
 #aproch_navbar_item:hover {
-    background: #34373c;
+    background: #e8e8e8;
 }
 #aproch_navbar_item:pressed {
-    background: #3f4247;
+    background: black;
 }
 #aproch_navbar_item:checked {
     color: white;
-    background: #3f4247;
+    background: black;
 }
 #aproch_navbar_trackbar {
     min-width: 4px;
     max-width: 4px;
-    /* min-height: 26px;
-    max-height: 26px; */
+    max-height: 25px;
+    margin-top: 12px;
+    margin-left: 10px;
     border-radius: 2px;
-    background: #4195f7;
+    background: #555;
 }
 #aproch_navbar_group {
-    margin: 20px 0;
-    color: #898fb3;
+    font-weight: bold;
+    margin: 10px 20px;
+    color: #292728;
 }
 
 /**********************/
 /** Modify Icon */
 /**********************/
 FileIconListWidget {
-    background: #eff2f8;
+    background: #ebebeb;
     qproperty-spacing: 18;
 }
 FileIconListWidget::item {
@@ -152,7 +127,7 @@ FileIconListWidget::item {
     padding: 1px;
 }
 FileIconListWidget::item:hover {
-    border: 1px solid #cfd3da;
+    border: 1px solid #ccc;
 }
 
 FileIconWidget {
@@ -163,8 +138,17 @@ FileIconWidget {
 
 FileIconWidget #appiconwidget_pixmap {
     border-radius: 6px;
-    background: #f4f7fc;
-    padding: 12px;
+    margin-top: 16px;
+    background: #f5f5f5;
+    max-width: 80px;
+    max-height: 80px;
+    min-width: 80px;
+    min-height: 80px;
+    margin-bottom: 16px;
+}
+
+FileIconWidget #appiconwidget_filename {
+    margin-bottom: 16px;
 }
 
 /** test button */

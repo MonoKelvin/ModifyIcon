@@ -6,7 +6,7 @@
 #include <QGraphicsDropShadowEffect>
 
 const QString AObjName_IconPixmapLabel("appiconwidget_pixmap");
-const QString AObjName_AppNameLabel("appiconwidget_appname");
+const QString AObjName_AppNameLabel("appiconwidget_filename");
 
 FileIconWidget::Data::Data()
     : mode(QIcon::Mode::Normal)
@@ -42,7 +42,6 @@ bool FileIconWidget::setFile(const QString& filePath)
     {
         QPixmap pixmap = icon.pixmap(m_iconPixmapLabel->width(), m_iconPixmapLabel->height(), m_data.mode);
         m_iconPixmapLabel->setPixmap(pixmap);
-        pixmap.save("E:/fuck.png");
     }
     else
     {
@@ -100,17 +99,14 @@ void FileIconWidget::_init(const QString& filePath)
     m_iconPixmapLabel->setObjectName(AObjName_IconPixmapLabel);
     m_iconPixmapLabel->setAlignment(Qt::AlignCenter);
     m_iconPixmapLabel->setScaledContents(true);
-    layout->addWidget(m_iconPixmapLabel, 4);
+    layout->addWidget(m_iconPixmapLabel, 1, Qt::AlignCenter);
 
     m_fileNameLabel = new QLabel(this);
+    m_fileNameLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Expanding);
     m_fileNameLabel->setObjectName(AObjName_AppNameLabel);
     m_fileNameLabel->setAlignment(Qt::AlignCenter);
-    layout->addWidget(m_fileNameLabel, 1);
+    layout->addWidget(m_fileNameLabel, 1, Qt::AlignCenter);
 
-    layout->setMargin(16);
-    layout->setAlignment(Qt::AlignCenter);
-
-    setIconSize(QSize(80, 80));
     setFile(filePath);
 
     QGraphicsDropShadowEffect* effect = new QGraphicsDropShadowEffect(this);

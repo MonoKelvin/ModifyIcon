@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QWidget(parent)
 {
     ui.setupUi(this);
+    setWindowTitle(qAppName());
 
     m_navigationBar = ui.widgetNavigationBar;
     m_mainPageStack = ui.MainPageStack;
@@ -26,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_navigationBar->addItem(tr("Collection"));
     m_navigationBar->addItem(tr("Settings"));
     aproch::SNavTrackBarStyle style;
-    //style.isFitItem = false;
+    style.duration = 120;
     style.isAnimation = true;
     m_navigationBar->setTrackBarStyle(style);
 }

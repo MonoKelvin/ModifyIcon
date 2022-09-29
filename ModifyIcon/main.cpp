@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     QPushButton styleBtn(QObject::tr("Reload Style Sheet"), &mainWidget);
     styleBtn.setProperty("buttonType", "test");
     QObject::connect(&styleBtn, &QPushButton::clicked, [&] {
-        QFile style(AStr(":/App/Style/MainStyleSheet"));
+        QFile style(AStr("E:/Project/Code/MonoStudio/ModifyIcon/ModifyIcon/Resource/AppStyleSheet.qss"));
         if (style.open(QFile::ReadOnly | QFile::Text))
         {
             a.setStyleSheet(style.readAll());

@@ -10,11 +10,11 @@
 *.Release
 *.user
 *.obj
+*.aps
 **/.vscode/*
 **/bin/*
 Makefile
 **/Backup/*
 **/Output/*
 **/Build/*
-/ThirdPatry/Aproch/*
-
+/ThirdParty/Aproch/*
